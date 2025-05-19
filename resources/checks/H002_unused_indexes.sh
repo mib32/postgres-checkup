@@ -62,6 +62,7 @@ with fk_indexes as (
     i.indisunique = false
     and i.indisvalid = true
     and ci.relpages > ${MIN_RELPAGES}
+  limit 50
 ), index_ratios as (
   select
     i.indexrelid as index_id,

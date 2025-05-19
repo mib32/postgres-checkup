@@ -34,6 +34,7 @@ index_data as (
   from pg_index i
   join pg_class ci on ci.oid = i.indexrelid and ci.relkind = 'i'
   where indisvalid = true and ci.relpages > ${MIN_RELPAGES}
+  limit 50
 ), redundant_indexes as (
   select
     i2.indexrelid as index_id,
